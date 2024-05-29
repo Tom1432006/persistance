@@ -60,7 +60,15 @@ int pers(unsigned long long int n, int depth = 0){
         return depth;
     }
 
-    unsigned long long int result = 1; 
+    // configure the start result
+    unsigned long long int result; 
+    
+    if(version == 0){ // multiplication
+        result = 1; 
+    }else if(version == 1){ // addition
+        result = 0; 
+    }
+
     for(unsigned long long int i = n; i>0; i /= 10){
         if(version == 0){ // multiplication
             result *= i % 10;
